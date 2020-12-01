@@ -42,22 +42,6 @@ class UserController extends Controller {
     public function me(){
         $user = Auth::user();
 
-        // // Creating a token without scopes...
-        // $tokenResult = $user->createToken('LumenBooks');
-
-        // $data = [
-        //     'id' => $user->id,
-        //     'name' => $user->name,
-        //     'email' => $user->email,
-        //     'photo' => $user->photo,
-        //     'role' => $user->role,
-        //     'access_token' => $tokenResult->accessToken,
-        //     'token_type' => 'Bearer',
-        //     'expires_at' => Carbon::parse(
-        //         $tokenResult->token->expires_at
-        //     )->toDateTimeString()
-        // ];
-
         return $this->returnData($user, "Data Berhasil Diambil", 200);
     }
 
