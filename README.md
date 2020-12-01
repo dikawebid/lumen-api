@@ -11,6 +11,49 @@ Laravel Lumen is a stunningly fast PHP micro-framework for building web applicat
 
 Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
 
+## Install
+
+### Clone Project
+```bash
+# Clone this repo
+git clone https://github.com/dikawebid/lumen-api.git
+```
+
+### Change Directory to Project
+```bash
+cd lumen-api
+```
+
+### Copy .env.example file
+```bash
+cp .env.example .env
+```
+
+### Install dependency
+
+```bash
+composer install
+```
+
+### Migrate and install Laravel Passport
+
+```bash
+# Create new tables for Passport
+php artisan migrate
+
+# Install encryption keys and other necessary stuff for Passport
+php artisan passport:install
+```
+
+### Start server
+```bash
+php -S localhost:8000 -t public
+```
+
+### Postman Collection
+
+Check [Postman Collection](https://www.getpostman.com/collections/8e55f4caf4fd23be7241) 
+
 ## Contributing
 
 Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
