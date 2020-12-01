@@ -32,14 +32,20 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
-    public function findForPassport($username)
-    {
+    public function findForPassport($username) {
         $user = $this->where('username', $username)->first();
-        if ($user) {
-            
-        } else {
+        if (empty($user)) {
             abort(400, "USER_BELUM_TERDAFTAR");
-        }
+        } 
+
         return $user;
+    }
+
+    public function validateForPassportPasswordGrant($password) {
+        if (empty($this->email_verified_at)) {
+            abort(400, "USER_BELUM_VERIFIKASI");
+        }
+
+        return app('hash')->check($password, $this->getAuthPassword());
     }
 }
